@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Flights </title>
+  <link rel="stylesheet" type="text/css" href="customer.css"/>
+</head>
+<body>
+  <div class="page">
+  <nav class="page__menu menu">
+    <ul class="menu__list r-list">
+      <li class="menu__group"><a href="customer_homepage.html" class="menu__link r-link text-underlined">Homepage</a></li>
+      <li class="menu__group"><a href="customer_flights.html" class="menu__link r-link text-underlined">Flights</a></li>
+      <li class="menu__group"><a href="customer_track_spending.html" class="menu__link r-link text-underlined">Spending</a></li>
+      <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Logout</a></li>
+    </ul>
+  </nav>
+</div>
+  <div style="margin-top: 1%;">
+  <h1 style="font-size: 2vw;"> Search for flights </h1>
+  </div>
+  <div>
+    <form action="/customer_search_flights" method="POST" style="width: 60%;">
+      <h2 style="text-align: left;">Date Range:</h2>
+      <label for="start_date">Start Date</label>
+    	<input type="text" name = "start_date" placeholder="Enter date" required/> <br>
+      <label for="end_date">End Date</label>
+    	<input type="text" name = "end_date" placeholder="Enter date" required/></br>
+
+      <h2 style="text-align: left;"> Arrival Info: </h2>
+      <label for="arrival_city">City</label>
+      <input type="text" name = "arrival_city" placeholder="Enter a city" required/> </br>
+      <label for="arrival_airport">Airport Name</label>
+      <input type="text" name = "arrival_airport" placeholder="Enter airport name" required/></br>
+
+      <h2 style="text-align: left;"> Departure Info: </h2>
+      <label for="departure_city">City</label>
+      <input type="text" name = "departure_city" placeholder="Enter a city" required/> </br>
+      <label for="departure_airport">Airport Name</label>
+      <input type="text" name = "departure_airport" placeholder="Enter airport name" required/></br>
+
+      <p style="text-align: left;"> All Purchased Flights </p>
+      <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider round"></span>
+      </label>  <br> <br>
+
+      <p style="text-align: left;"> All Future Flights </p>
+      <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider round"></span>
+      </label>  <br> <br>
+      <input type="submit" value = Search />  <br>
+    	{% if error %}
+    		<p class="error"><strong>Error:</strong> {{error}}</p>
+    	{% endif %}
+    </form>
+
+    <h1> Results: </h1>
+    <table>
+    	<th>Flight Number </th>
+    	<th>Airline Name</th>
+      <th>Airplane ID</th>
+      <th>Departure Code</th>
+      <th>Departure Date</th>
+      <th>Departure Time</th>
+      <th>Arrival Code</th>
+      <th>Arrival Date</th>
+      <th>Arrival Time</th>
+      <th>Base Price</th>
+      <th>Status</th>
+
+    {% for line in flight %}
+    	<tr>
+    		<td>{{line['flight_num']}}</td>
+    		<td>{{line['airline_name']}}</td>
+        <td>{{line['airplane_id']}}</td>
+        <td>{{line['departure_code']}}</td>
+        <td>{{line['departure_date']}}</td>
+        <td>{{line['departure_time']}}</td>
+        <td>{{line['arrival_code']}}</td>
+        <td>{{line['arrival_date']}}</td>
+        <td>{{line['arrival_time']}}</td>
+        <td>{{line['base_price']}}</td>
+        <td>{{line['status']}}</td>
+
+    	</tr>
+    {% endfor %}
+    </table>
+
+</div>
+</body>
+</html>

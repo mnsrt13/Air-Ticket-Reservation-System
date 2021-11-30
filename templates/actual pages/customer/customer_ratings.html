@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Ratings </title>
+  <link rel="stylesheet" type="text/css" href="customer.css"/>
+</head>
+<body>
+  <div class="page">
+  <nav class="page__menu menu">
+    <ul class="menu__list r-list">
+      <li class="menu__group"><a href="customer_homepage.html" class="menu__link r-link text-underlined">Homepage</a></li>
+      <li class="menu__group"><a href="customer_flights.html" class="menu__link r-link text-underlined">Flights</a></li>
+      <li class="menu__group"><a href="customer_track_spending.html" class="menu__link r-link text-underlined">Spending</a></li>
+      <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Logout</a></li>
+    </ul>
+  </nav>
+  <div style="margin-top: 5%;">
+  <h1 style="font-size: 5vw;">Customer Review</h1>
+  </div>
+  <h2>Flight Selected: </h2>
+  <table>
+    <th>Flight Number </th>
+    <th>Airline Name</th>
+    <th>Airplane ID</th>
+    <th>Departure Code</th>
+    <th>Departure Date</th>
+    <th>Departure Time</th>
+    <th>Arrival Code</th>
+    <th>Arrival Date</th>
+    <th>Arrival Time</th>
+    <th>Base Price</th>
+    <th>Status</th>
+
+  {% for line in flight %}
+    <tr>
+      <td>{{line['flight_num']}}</td>
+      <td>{{line['airline_name']}}</td>
+      <td>{{line['airplane_id']}}</td>
+      <td>{{line['departure_code']}}</td>
+      <td>{{line['departure_date']}}</td>
+      <td>{{line['departure_time']}}</td>
+      <td>{{line['arrival_code']}}</td>
+      <td>{{line['arrival_date']}}</td>
+      <td>{{line['arrival_time']}}</td>
+      <td>{{line['base_price']}}</td>
+      <td>{{line['status']}}</td>
+
+    </tr>
+  {% endfor %}
+  </table>
+
+  <form action="/post" method="POST">
+    <label for="rating">Rating: </label>
+    <input type="text" name = "rating" placeholder="Enter a rating from 1-5" required/> </br>
+    <label for="comment">Comment: </label> <br>
+    <textarea id="comment" name="comment" placeholder="Type a comment" required rows="10" columns="100"> </textarea> <br>
+    <input type="submit" value = Publish />
+  </form>
+
+</div>
+</body>
+</html>

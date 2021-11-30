@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Spending </title>
+  <link rel="stylesheet" type="text/css" href="customer.css"/>
+</head>
+<body>
+  <div class="page">
+  <nav class="page__menu menu">
+    <ul class="menu__list r-list">
+      <li class="menu__group"><a href="customer_homepage.html" class="menu__link r-link text-underlined">Homepage</a></li>
+      <li class="menu__group"><a href="customer_flights.html" class="menu__link r-link text-underlined">Flights</a></li>
+      <li class="menu__group"><a href="customer_track_spending.html" class="menu__link r-link text-underlined">Spending</a></li>
+      <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Logout</a></li>
+    </ul>
+  </nav>
+  </div>
+  <div style="margin-top: 2%;">
+  <h1 style="font-size: 5vw;">Track Spending</h1>
+  </div>
+
+  <div id="customer-default-spending">
+    <h2 style="text-align: left; margin-left: 10%;"> Total Spent: ${{customer_total_spending}}</h2>
+    <h2 style="text-align: left; margin-left: 10%;"> Spending for Past Six Months</h2>
+  </div>
+
+  <form action="/post" method="POST">
+  	<h1>Search for Monthly Spending</h1>
+    <label for="start_date">Start Date: </label>
+    <input type="text" name = "start_date" placeholder="Enter a date" required/> </br>
+    <label for="end_date">End Date: </label>
+    <input type="text" name = "end_date" placeholder="Enter a date" required/> </br>
+  	<input type="submit" value = Post />
+  </form>
+
+  <div id="customer-default-spending">
+    <h2 style="text-align: left;margin-left: 10%;"> Total Spent: ${{customer_search_total_spending}}</h2>
+    <h2 style="text-align: left;margin-left: 10%;"> Spending for Past Six Months</h2>
+  </div>
+</div>
+</body>
+</html>

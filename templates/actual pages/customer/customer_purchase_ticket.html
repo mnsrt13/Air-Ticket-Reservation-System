@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Purchase Ticket </title>
+  <link rel="stylesheet" type="text/css" href="customer.css"/>
+</head>
+<body>
+  <div class="page">
+  <nav class="page__menu menu">
+    <ul class="menu__list r-list">
+      <li class="menu__group"><a href="customer_homepage.html" class="menu__link r-link text-underlined">Homepage</a></li>
+      <li class="menu__group"><a href="customer_flights.html" class="menu__link r-link text-underlined">Flights</a></li>
+      <li class="menu__group"><a href="customer_track_spending.html" class="menu__link r-link text-underlined">Spending</a></li>
+      <li class="menu__group"><a href="#0" class="menu__link r-link text-underlined">Logout</a></li>
+    </ul>
+  </nav>
+</div>
+  <div style="margin-top: 1%;">
+  <h1 style="font-size: 2vw;"> Purchase Ticket </h1>
+  </div>
+  <div>
+    <form action="/customer_search_flights" method="POST" style="width: 60%;">
+      <label for="airline_name">Airline Name</label>
+    	<input type="text" name = "airline_name" placeholder="Enter airline name" required/> <br>
+      <label for="flight_number">Flight Number</label>
+    	<input type="text" name = "flight_number" placeholder="Enter flight number" required/></br>
+      <label for="card_type">Card Type</label>
+      <input type="text" name = "card_type" placeholder="Enter card type (debit or credit)" required/></br>
+      <label for="card_num">Card Number</label>
+      <input type="text" name = "card_num" placeholder="Enter card number" required/></br>
+      <label for="card_name">Card Name</label>
+      <input type="text" name = "card_name" placeholder="Enter card name" required/></br>
+      <label for="expiration_date">Expiration Date</label>
+      <input type="text" name = "expiration_date" placeholder="Enter expiration date of card" required/></br>
+      <label for="purchase_date">Purchase Date</label>
+      <input type="text" name = "purchase_date" placeholder="Enter purchase date" required/></br>
+      <label for="purchase_time">Purchase Time</label>
+      <input type="text" name = "purchase_time" placeholder="Enter purchase time" required/></br>
+
+      <input type="submit" value = Search />  <br>
+    	{% if error %}
+    		<p class="error"><strong>Error:</strong> {{error}}</p>
+    	{% endif %}
+    </form>
+
+  </div>
+  </body>
+  </html>
